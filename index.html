@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>TrekChat</title>
+</head>
+<body>
+    <head>
+        <h1>Hailing Frequencies</h1>
+    </head>
+    <main id="container">
+        <h2>Chat Window</h2>
+        <ul>
+            <li>Chats!</li>
+        </ul>
+        <form>
+            <label for="chat">Enter your message:</label>
+            <input type="text" name="chat" placeholder="Your text goes here...">
+        </form>
+    </main>
+    
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCK8YJOwB3_tgrFiZL2fpkC4OGCthDYxYE",
+        authDomain: "trekchat-ac16c.firebaseapp.com",
+        databaseURL: "https://trekchat-ac16c.firebaseio.com",
+        projectId: "trekchat-ac16c",
+        storageBucket: "trekchat-ac16c.appspot.com",
+        messagingSenderId: "602182627554",
+        appId: "1:602182627554:web:a0036d211c9186c78c6ebb"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+</script>
+    <script src="app.js"></script>
+</body>
+</html>
