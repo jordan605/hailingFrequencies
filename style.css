@@ -1,3 +1,17 @@
+body{
+    background: black;
+    color: white;
+    padding: 10px;
+    margin: 0;
+}
+
+nav{
+    background: #ff9900;
+    width: 100%;
+    height: 4em;
+    border-radius: 80px 25px 25px 0;
+}
+
 #container{
     max-width: 500px;
     margin: auto;
@@ -5,9 +19,36 @@
 }
 
 h1{
-    text-align: center;
+    width: 100%;
+    align: right;
+    text-transform: uppercase;
+    text-align: right;
+    color: #ff9933;
 }
 
 h2{
     text-align: center;
+}
+
+input[type="submit"]{
+    background: #9999FF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+input[type="text"]{
+    padding: 10px;
+    background: #ffff99;
+}
+
+li{
+    color: #ffcc66;
+    list-style: none;
+    padding: .3em;
+}
+
+p{
+    padding: 0 2em;
+    margin: 0px;
 }
