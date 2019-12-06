@@ -20,12 +20,13 @@
         </ul>
         <form>
             <label for="chat">Enter new transmission:</label>
-            <input type="text" name="chat" placeholder="Your text goes here...">
+            <input type="text" name="chat" id="chat" placeholder="Your text goes here...">
             <input type="submit" value="Transmit">
         </form>
         <div>
             Currently transmitting as: <span id="transmitter">Anonymous</span>
-            <button>Update Name</button>
+            <input type="text" name="namechange" id="namechange">
+            <button id="updateNameBtn">Update Name</button>
         </div>
         
     </main>

@@ -1,10 +1,16 @@
 const ul = document.querySelector('ul');
-const input = document.querySelector('input');
+const chat = document.querySelector('#chat');
 const transmitter = document.querySelector('#transmitter');
-let author = "";
+const updateNameBtn = document.querySelector("#updateNameBtn");
+const nameChange = document.querySelector("#namechange");
 
+// Name
+let author = "";
 localStorage ? author = localStorage.username : author = "Some Red Shirt";  // If no stored name, establishes default
 transmitter.textContent = author;
+updateNameBtn.addEventListener('click', (e) => {
+    
+});
 
 const newChat = chat => {
     let li = document.createElement('li');
@@ -15,24 +21,24 @@ const newChat = chat => {
     ul.appendChild(li);
 }
 
-// Populate with existing chat messages
-// db.collection('disco').orderBy('timestamp').get()
-//     .then(snapshot => snapshot.forEach(chat => newChat(chat.data().text)));
-
 // Add a new message to the db
 window.addEventListener('keydown', e => {
-    if(e.keyCode === 13 && input.value){
+    if(e.keyCode === 13 && chat.value){
         e.preventDefault();
         const now = new Date();
         db.collection('disco').add({author: author,
-                                    text: input.value,
+                                    text: chat.value,
                                     timestamp: firebase.firestore.Timestamp.fromDate(now)
                                 });
-        input.value = "";
+        chat.value = "";
+    }
+    else if(e.keyCode === 13 && nameChange.value){
+        localStorage.setItem("username", nameChange.value);
+        nameChange.value = "";
     }
 });
 
-// Adding new chats to the bottom of the window
+// Adding  chats to the window
 db.collection('disco').orderBy('timestamp').onSnapshot(chats => {
     chats.docChanges().forEach(chat => {
         if(chat.type === "added"){
@@ -40,3 +46,9 @@ db.collection('disco').orderBy('timestamp').onSnapshot(chats => {
         }
     })
 });    
+
+
+
+// Populate with existing chat messages
+// db.collection('disco').orderBy('timestamp').get()
+//     .then(snapshot => snapshot.forEach(chat => newChat(chat.data().text)));
